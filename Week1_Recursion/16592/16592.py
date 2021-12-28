@@ -22,5 +22,5 @@ even = evenB-evenA
 if int(str(A).replace("0","")[-1])%2:
     odd += 1
 else:
-    even -= 1
+    even += 1
 print(odd, even)
