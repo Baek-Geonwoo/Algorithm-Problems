@@ -7,7 +7,6 @@ def solve(n,x):
     for i in range(x+3**(n-1),x+2*3**(n-1)):
         C[i] = " "
     solve(n-1,x+2*3**(n-1))
-
 while True:
     try:
         n = input()
