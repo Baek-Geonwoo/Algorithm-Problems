@@ -16,7 +16,7 @@ https://www.acmicpc.net/problem/11401
 - nCk는 n!/(k!*(n-k)!)이고, a^(p-2)=a-1(mod p)이므로 nCk%p=n!%px(k!x(n-k)!)^(p-2)%p이다.
 ---
 
-### 풀이1 소스코드
+### 소스코드
 - 메모리 : 185844KB
 - 시간 : 1328ms
 ```Python

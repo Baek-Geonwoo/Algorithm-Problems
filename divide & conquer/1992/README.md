@@ -13,7 +13,7 @@ https://www.acmicpc.net/problem/1992
 - 결과는 ()로 감싸서 반환
 ---
 
-### 풀이1 소스코드
+### 소스코드
 - 메모리 : 29200KB
 - 시간 : 68ms
 ```Python
