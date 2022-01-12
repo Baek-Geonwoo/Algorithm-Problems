@@ -6,7 +6,7 @@ A = [int(e) for e in I().split()]
 A.sort()
 s,e = 0, n-1
 cnt = 0
-while s <= e:
+while s < e:
     if A[s]+A[e] == m:
         cnt += 1
         s += 1
