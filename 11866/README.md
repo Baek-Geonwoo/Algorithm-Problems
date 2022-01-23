@@ -14,7 +14,7 @@ https://www.acmicpc.net/problem/11866
 
 ### 소스코드
 - 메모리 : 32288KB
-- 시간 : 136qms
+- 시간 : 136ms
 ```Python
 import sys
 from collections import deque
