@@ -13,4 +13,4 @@ for t in range(1,T+1):
             if A[i] == d*4//3:
                 A.pop(i)
                 break
-    print("Case #{}:".format(t)+" ".join(map(str,D)))
+    print("Case #{}: ".format(t)+" ".join(map(str,D)))
