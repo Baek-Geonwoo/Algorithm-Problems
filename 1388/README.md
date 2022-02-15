@@ -1,5 +1,5 @@
 # 백준 1388번 바닥 장식
-https://www.acmicpc.net/problem/23559
+https://www.acmicpc.net/problem/1388
 ---
 
 ### 문제 해결 날짜
@@ -8,7 +8,7 @@ https://www.acmicpc.net/problem/23559
 
 ### 풀이1 코드 설명
 - DFS를 통해 아래, 오른쪽 순으로 F(바닥 장식)을 탐색한다.
-- visited에 해당 칸의 방문여부를 저정하고 Q가 빌 때까지 방문하지 않은 칸에 대해서 해당 칸의 아래, 오른쪽 칸에서 다음을 시행한다.
+- visited에 해당 칸의 방문여부를 저정하고 stack이 빌 때까지 방문하지 않은 칸에 대해서 해당 칸의 아래, 오른쪽 칸에서 다음을 시행한다.
     * ```F[X][Y]가 '-'라면 그 왼쪽, F[X][Y-1]이 가능한 위치가 아니거나 '|'일 경우 다른 판자이므로 ans+=1```
     * ```F[X][Y]가 '|'라면 그 위쪽, F[X-1][Y]이 가능한 위치가 아니거나 '-'일 경우 다른 판자이므로 ans+=1```
 ---
@@ -18,7 +18,7 @@ https://www.acmicpc.net/problem/23559
 - 시간 : 96ms
 ```Python
 import sys
-from collections import deque
+from collections import destackue
 I = sys.stdin.readline
 def in_range(x,y):
     if 0<=x<N and 0<=y<M:
@@ -29,17 +29,17 @@ F = [list(I().strip()) for _ in range(N)]
 visited = [[False]*M for _ in range(N)]
 dx = [0,1]
 dy = [1,0]
-Q = deque([[0,0]])
+stack = destackue([[0,0]])
 visited[0][0] = True
 ans = 1
-while Q:
-    x, y = Q.pop()
+while stack:
+    x, y = stack.pop()
     for i in range(2):
         X = x+dx[i]
         Y = y+dy[i]
         if in_range(X,Y):
             if not visited[X][Y]:
-                Q.append([X,Y])
+                stack.append([X,Y])
                 visited[X][Y] = True
                 i = X-int(F[X][Y]=='|')
                 j = Y-int(F[X][Y]=='-')

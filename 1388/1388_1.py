@@ -10,17 +10,17 @@ F = [list(I().strip()) for _ in range(N)]
 visited = [[False]*M for _ in range(N)]
 dx = [0,1]
 dy = [1,0]
-Q = deque([[0,0]])
+stack = deque([[0,0]])
 visited[0][0] = True
 ans = 1
-while Q:
-    x, y = Q.pop()
+while stack:
+    x, y = stack.pop()
     for i in range(2):
         X = x+dx[i]
         Y = y+dy[i]
         if in_range(X,Y):
             if not visited[X][Y]:
-                Q.append([X,Y])
+                stack.append([X,Y])
                 visited[X][Y] = True
                 i = X-int(F[X][Y]=='|')
                 j = Y-int(F[X][Y]=='-')
