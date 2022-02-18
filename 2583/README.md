@@ -14,8 +14,8 @@ https://www.acmicpc.net/problem/2583
 ---
 
 ### 소스코드
-- 메모리 : KB
-- 시간 : ms
+- 메모리 : 32444KB
+- 시간 : 112ms
 ```Python
 import sys
 from collections import deque
@@ -25,30 +25,76 @@ def in_range(x,y):
         return True
     return False
 M, N, K = map(int, I().split())
-visited = [[False]*N for _ in range(M)]
+visited = [[0]*N for _ in range(M)]
 for _ in range(K):
     b,a,d,c = map(int,I().split())
     for i in range(a,c):
         for j in range(b,d):
-            visited[i][j] = True
+            visited[i][j] = 1
 A = []
-dx = [-1,1,0,0]
-dy = [0,0,-1,1]
+dx = (-1,1,0,0)
+dy = (0,0,-1,1)
 for i in range(M):
     for j in range(N):
-        ans = 0
         if not visited[i][j]:
-            stack = deque([[i,j]])
+            ans = 0
+            stack = deque()
+            stack.append((i,j))
             while stack:
                 x, y = stack.pop()
-                if not visited[x][y]:
-                    visited[x][y] = True
-                    ans += 1
-                    for i in range(4):
-                        X = x+dx[i]
-                        Y = y+dy[i]
-                        if in_range(X,Y):
-                            stack.append([X,Y])
+                visited[x][y] = 1
+                ans += 1
+                for k in range(4):
+                    X = x+dx[k]
+                    Y = y+dy[k]
+                    if in_range(X,Y) and not visited[X][Y]:
+                        stack.append((X,Y))
+                        visited[X][Y] = 1
+            A.append(ans)
+A.sort()
+print(len(A))
+for a in A:
+    print(a, end=" ")
+```
+---
+### 오답노트
+- i, j로 루프를 도는데 그 안에서 i를 반복자로 루프를 또다시 돌아서 문제가 발생했다.
+
+### 오답코드
+```Python
+import sys
+from collections import deque
+I = sys.stdin.readline
+def in_range(x,y):
+    if 0<=x<M and 0<=y<N:
+        return True
+    return False
+M, N, K = map(int, I().split())
+visited = [[0]*N for _ in range(M)]
+for _ in range(K):
+    b,a,d,c = map(int,I().split())
+    for i in range(a,c):
+        for j in range(b,d):
+            visited[i][j] = 1
+A = []
+dx = (-1,1,0,0)
+dy = (0,0,-1,1)
+for i in range(M):
+    for j in range(N):
+        if not visited[i][j]:
+            ans = 0
+            stack = deque()
+            stack.append((i,j))
+            while stack:
+                x, y = stack.pop()
+                visited[x][y] = 1
+                ans += 1
+                for i in range(4):
+                    X = x+dx[i]
+                    Y = y+dy[i]
+                    if in_range(X,Y) and not visited[X][Y]:
+                        stack.append((X,Y))
+                        visited[X][Y] = 1
             A.append(ans)
 A.sort()
 print(len(A))

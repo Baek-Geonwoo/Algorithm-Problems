@@ -6,30 +6,35 @@ def in_range(x,y):
         return True
     return False
 M, N, K = map(int, I().split())
-visited = [[False]*N for _ in range(M)]
+visited = [[0]*N for _ in range(M)]
 for _ in range(K):
     b,a,d,c = map(int,I().split())
     for i in range(a,c):
         for j in range(b,d):
-            visited[i][j] = True
+            visited[i][j] = 1
 A = []
 dx = (-1,1,0,0)
 dy = (0,0,-1,1)
 for i in range(M):
     for j in range(N):
-        ans = 0
+        print(visited[i][j], end=" ")
+    print()
+for i in range(M):
+    for j in range(N):
         if not visited[i][j]:
-            stack = deque([(i,j)])
+            ans = 0
+            stack = deque()
+            stack.append((i,j))
             while stack:
                 x, y = stack.pop()
-                if not visited[x][y]:
-                    visited[x][y] = True
-                    ans += 1
-                    for i in range(4):
-                        X = x+dx[i]
-                        Y = y+dy[i]
-                        if in_range(X,Y):
-                            stack.appendleft((X,Y))
+                visited[x][y] = 1
+                ans += 1
+                for k in range(4):
+                    X = x+dx[k]
+                    Y = y+dy[k]
+                    if in_range(X,Y) and not visited[X][Y]:
+                        stack.append((X,Y))
+                        visited[X][Y] = 1
             A.append(ans)
 A.sort()
 print(len(A))
