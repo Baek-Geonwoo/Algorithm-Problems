@@ -17,10 +17,6 @@ dx = (-1,1,0,0)
 dy = (0,0,-1,1)
 for i in range(M):
     for j in range(N):
-        print(visited[i][j], end=" ")
-    print()
-for i in range(M):
-    for j in range(N):
         if not visited[i][j]:
             ans = 0
             stack = deque()
