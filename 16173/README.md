@@ -46,3 +46,26 @@ if DFS(0,0):
 else:
     print("Hing")
 ```
+---
+### 오답노트
+- 백트래킹 문제라서 백트래킹으로 풀었더니 시간복잡도가 O(4^N)이 나와서 시간초과가 떴다.
+
+### 오답코드
+```Python
+import sys
+def solution(i):
+    global N, ans
+    if i == N:
+        S.add(ans)
+        return
+    for r in R:
+        ans += r
+        solution(i+1)
+        ans -= r
+N = int(sys.stdin.readline())
+S = set()
+R = [1, 5, 10, 50]
+ans = 0
+solution(0)
+print(len(S))
+```
