@@ -5,7 +5,6 @@ def get_exp(limit,e):
     while b <= limit:
         ans += limit//b
         b *= e
-    print(ans)
     return ans
 n, m = map(int, sys.stdin.readline().split())
 ans = [get_exp(n,2), get_exp(n,5)]
