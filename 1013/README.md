@@ -58,7 +58,7 @@ for _ in range(int(I())):
 ### 코드 설명
 - 정규표현식 (100+1+|01)+에 대한 NFA를 그린 후 그를 토대로 DFA를 그려 입력받은 문자열이 DFA의 정답노드에서 끝나는지 확인한다.
 - 아래는 (100+1+|01)+을 NFA, DFA로 나타낸 것이다.
-- [README.md](https://github.com/Baek-Geonwoo/Algorithm-Problems/files/8370570/README.md)
+- ![NFA, DFA](https://user-images.githubusercontent.com/86524230/160595434-baa4a56c-a93e-441c-bf96-fd124f907511.jpg)
 - 정규표현식 (100+1+|01)+을 표현한 NFA에서 정답노드는 2,6이고, DFA에서는 2,6,7이다.
 ---
 
