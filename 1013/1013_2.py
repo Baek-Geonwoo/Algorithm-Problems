@@ -16,7 +16,7 @@ def wave(i, n):
         return n in (2,6,7)
     if dfa[n][int(S[i])] != None:
         return wave(i+1,dfa[n][int(S[i])])
-
+        
 for _ in range(int(I())):
     S = I().strip()
     print('YES') if wave(0,0) else print('NO')
