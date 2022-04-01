@@ -14,18 +14,18 @@ https://www.acmicpc.net/problem/20444
 
 ### 소스코드
 - 메모리 : 30864KB
-- 시간 : 72ms
+- 시간 : 68ms
 ```Python
 import sys
 def pieces(mid):
     return (mid+1)*(n-mid+1)
 n, k = map(int, sys.stdin.readline().split())
-lo, hi = 0, n//2
-while lo<=hi:
+lo, hi = -1, n
+while lo+1<hi:
     mid = (lo+hi)//2
     if pieces(mid) == k:
         print('YES'); sys.exit()
-    elif pieces(mid) > k: hi = mid-1
-    else: lo = mid+1
+    elif pieces(mid) > k: hi = mid
+    else: lo = mid
 print('NO')
 ```
