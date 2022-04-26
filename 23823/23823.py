@@ -4,7 +4,7 @@ def two():
     return map(int, sys.stdin.readline().split())
 
 n, q = two()
-cake = [0,defaultdict(int), defaultdict(int)]
+cake = {1:defaultdict(int), 2:defaultdict(int)}
 MAX = {1:0, 2:0}
 cnt = {1:0, 2:0}
 for _ in range(q):
