@@ -5,7 +5,7 @@ def check(S):
         if v in S: vow += 1
     if len(S)-vow >= 2 and vow >= 1: return True
     return False
-def solution(i,S):
+def solution(i, S):
     if len(S) == L:
         if check(S):
             print(S)
