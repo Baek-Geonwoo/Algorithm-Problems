@@ -5,6 +5,34 @@ https://www.acmicpc.net/problem/11048
 ### 문제 해결 날짜
 - 2022.04.28
 ---
+## 풀이 1 - DP(1차원)
+
+### 코드 설명
+- `dp[i]`는 (N,i-1)으로 이동할 때 가져올 수 있는 사탕의 최대개수
+- 사탕 수는 0 이상이므로 대각선이동을 제외해도 됨
+- i==0이면 바로 윗방에서 내려오는 것만 가능하므로 `dp[i] = dp[i] + A[i]`
+- i!=0이면 윗방에서 내려오거나 왼쪽방으로부터 올 수 있으므로 `dp[i] = A[i] + max(dp[i], dp[i-1])`
+---
+
+### 소스코드
+- 메모리 : 30840KB
+- 시간 : 664ms
+```Python
+import sys
+input = sys.stdin.readline
+N, M = map(int, input().split())
+dp = [0]*M
+for _ in range(N):
+    A = list(map(int,input().split()))
+    for i in range(M):
+        if i == 0:
+            dp[i] += A[i]
+        else:
+            dp[i] = A[i] + max(dp[i], dp[i-1])
+print(dp[M-1])
+```
+---
+## 풀이 2 - DP(2차원)
 
 ### 코드 설명
 - `dp[x][y]`는 (1,1)부터 (x,y)까지 이동하는 동안 얻을 수 있는 사탕의 최대개수이다.
