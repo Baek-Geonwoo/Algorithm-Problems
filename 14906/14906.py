@@ -3,6 +3,7 @@ import re
 def input():
     return sys.stdin.readline().strip()
 def Slimp(S):
+    if len(S)<2: return 0
     if S[:2] == 'AH' and len(S) == 2:
         return 1
     elif S[0] == 'A' and S[-1] == 'C':
