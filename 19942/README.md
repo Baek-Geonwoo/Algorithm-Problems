@@ -74,7 +74,6 @@ input = sys.stdin.readline
 N = int(input())
 m = np.array(list(map(int, input().split())))
 I = np.array([np.array(list(map(int, input().split()))) for _ in range(N)])
-#if np.sum(I[1:])
 if sum(np.sum(I[:,:-1], axis=0)-m>=0)!=4:
     print(-1)
 else:
