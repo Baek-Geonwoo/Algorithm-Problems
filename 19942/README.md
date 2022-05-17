@@ -15,7 +15,7 @@ https://www.acmicpc.net/problem/19942
 ---
 
 ### 소스코드
-- 메모리 : 31860KB
+- 메모리 : 31840KB
 - 시간 : 364ms
 ```Python
 import sys
@@ -47,7 +47,7 @@ else:
     ans = 500*N
     ans_lst = []
     for i in range(1,N+1):
-        for c in list(combinations(range(N), i)):
+        for c in combinations(range(N), i):
             if v_boolean(v_sub(v_sum(I,0,3,c),m))==4:
                 cost = v_sum(I,4,4,c)[4]
                 if cost < ans:
