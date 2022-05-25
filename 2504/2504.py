@@ -26,7 +26,6 @@ for i in range(len(S)):
         else:
             ans = 0
             break
-    print(stack, S[i], ans, tmp)
 if stack:
     print(0)
 else:
