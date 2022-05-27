@@ -9,16 +9,18 @@ def check(m):
 M = int(sys.stdin.readline())
 lo, hi = 1, 500000000
 ans = -1
+flag = False
 while lo<=hi:
     mid = (lo+hi)//2
     n = check(mid)
     if n >= M:
         if M == n:
             ans = mid
+            flag = True
         hi = mid-1
     else:
         lo = mid+1
-if M == ans*5:
+if flag:
     print(ans)
 else:
     print(-1)
